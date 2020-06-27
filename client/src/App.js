@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Header from "./components/Header";
+import Wrapper from "./components/Wrapper";
+import NoMatch from "./pages/NoMatch";
+import Search from "./pages/Search";
+import Saved from "./pages/Saved";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import './App.css';
+import { render } from '@testing-library/react';
+
+function App extends Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <NavBar />
+          <Header />
+          <Wrapper>
+            <route exact path="/" component={Search} />
+            <route exact path="/search" component={Search} />
+            <route exact path="/saved" component={Saved} />
+            <route exact path="/noMatch" component={NoMatch} />
+          </Wrapper>
+        </div>
+      </Router>
+    )
+  };
+};
 
 export default App;
