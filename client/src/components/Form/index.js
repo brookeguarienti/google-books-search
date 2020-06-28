@@ -4,8 +4,8 @@ function Form(props) {
   return (
     <div className="container">
       <form>
-        <div className="form">
-          <label html="search">
+        <div className="form-group">
+          <label htmlFor="search">
             <h2>Explore for books here</h2>
           </label>
           <input
